@@ -14,49 +14,74 @@ The basic usage is:
 
 Currently implemented functions:
 
-  InflectionJS.pluralize(plural)
+  `InflectionJS.pluralize(string, plural)`
+
     renders a singular English language noun into its plural form
     normal results can be overridden by passing in an alternative
 
-  InflectionJS.singularize(singular)
+
+  `InflectionJS.singularize(string, singular)`
+
     renders a plural English language noun into its singular form
     normal results can be overridden by passing in an alterative
 
-  InflectionJS.camelize(lowFirstLetter)
+
+  `InflectionJS.camelize(string, lowFirstLetter)`
+
     renders a lower case underscored word into camel case
     the first letter of the result will be upper case unless you pass true
     also translates "/" into "::" (underscore does the opposite)
 
-  InflectionJS.underscore()
+
+  `InflectionJS.underscore(string)`
+
     renders a camel cased word into words seperated by underscores
     also translates "::" back into "/" (camelize does the opposite)
 
-  InflectionJS.humanize(lowFirstLetter)
+
+  `InflectionJS.humanize(string, lowFirstLetter)`
+
     renders a lower case and underscored word into human readable form
     defaults to making the first letter capitalized unless you pass true
 
-  InflectionJS.capitalize()
+
+  `InflectionJS.capitalize(string)`
+
     renders all characters to lower case and then makes the first upper
 
-  InflectionJS.dasherize()
+
+  `InflectionJS.dasherize(string)`
+
     renders all underbars and spaces as dashes
 
-  InflectionJS.titleize()
+
+  `InflectionJS.titleize(string)`
+
     renders words into title casing (as for book titles)
 
-  InflectionJS.demodulize()
+
+  `InflectionJS.demodulize(string)`
+
     renders class names that are prepended by modules into just the class
 
-  InflectionJS.tableize()
+
+  `InflectionJS.tableize(string)`
+
     renders camel cased singular words into their underscored plural form
 
-  InflectionJS.classify()
+
+  `InflectionJS.classify(string)`
+
     renders an underscored plural word into its camel cased singular form
 
-  InflectionJS.foreign\_key(dropIdUbar)
+
+  `InflectionJS.foreign_key(string, dropIdUbar)`
+
     renders a class name (camel cased singular noun) into a foreign key
     defaults to seperating the class from the id with an underbar unless
     you pass true
 
-  InflectionJS.ordinalize()
+
+  `InflectionJS.ordinalize(string)`
+
     renders all numbers found in the string into their sequence like "22nd"
