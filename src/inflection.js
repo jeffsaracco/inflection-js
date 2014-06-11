@@ -128,13 +128,15 @@ String - passed String modified by passed rules
 Examples:
 InflectionJS.apply_rules("cows", InflectionJs.singular_rules) === 'cow'
 */
-  apply_rules: function(str, rules, skip, override) {
+  apply_rules: function(str, rules, skip, override, rule) {
+    if(rule == null) { rule = true; }
+
     if (override) {
       str = override;
     }
     else {
       var ignore = (skip.indexOf(str.toLowerCase()) > -1);
-      if (!ignore) {
+      if (!ignore && rule) {
         for (var x = 0; x < rules.length; x++) {
           if (str.match(rules[x][0])) {
             str = str.replace(rules[x][0], rules[x][1]);
@@ -182,21 +184,17 @@ This function adds pluralization support to every String object
 Signature:
 String.pluralize(plural) == String
 Arguments:
-plural - String (optional) - overrides normal output with said String
+rule - Boolean (optional) - provides an conditional for if to pluralize or not
 Returns:
 String - singular English language nouns are returned in plural form
-Examples:
-"person".pluralize() == "people"
-"octopus".pluralize() == "octopi"
-"Hat".pluralize() == "Hats"
-"person".pluralize("guys") == "guys"
 */
-InflectionJS.pluralize = function(string, plural) {
+InflectionJS.pluralize = function(string, rule) {
   return InflectionJS.apply_rules(
     string,
     this.plural_rules,
     this.uncountable_words,
-    plural
+    null,
+    rule
   );
 };
 

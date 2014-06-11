@@ -6,6 +6,13 @@ describe("InflectionJS", function() {
       expect(InflectionJS.pluralize("Hat")).toEqual("Hats");
       expect(InflectionJS.pluralize("guy")).toEqual("guys");
     });
+
+    it("pluralizes the words based on rule", function() {
+      expect(InflectionJS.pluralize("person", true)).toEqual("people");
+      expect(InflectionJS.pluralize("octopus", 10 > 9)).toEqual("octopi");
+      expect(InflectionJS.pluralize("Hat", 1 < 2)).toEqual("Hats");
+      expect(InflectionJS.pluralize("guy", false)).toEqual("guy");
+    });
   });
 
   describe("#singularize", function() {
